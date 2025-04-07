@@ -1,0 +1,496 @@
+2025 Masters Tournament Odds
+==================================================
+
+Data sourced from The Odds API
+Note: Top 20 and Make Cut odds may not be available
+
+Golfer: Scottie Scheffler
+Win Odds: 450
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Rory McIlroy
+Win Odds: 650
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Collin Morikawa
+Win Odds: 1400
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Jon Rahm
+Win Odds: 1600
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Ludvig Aberg
+Win Odds: 1600
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Bryson DeChambeau
+Win Odds: 1800
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Xander Schauffele
+Win Odds: 2000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Justin Thomas
+Win Odds: 2200
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Hideki Matsuyama
+Win Odds: 2800
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Joaquin Niemann
+Win Odds: 2800
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Patrick Cantlay
+Win Odds: 2800
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Viktor Hovland
+Win Odds: 2800
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Brooks Koepka
+Win Odds: 3000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Jordan Spieth
+Win Odds: 3000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Tommy Fleetwood
+Win Odds: 3300
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Tyrrell Hatton
+Win Odds: 3300
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Cameron Smith
+Win Odds: 4000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Min Woo Lee
+Win Odds: 4000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Shane Lowry
+Win Odds: 4000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Will Zalatoris
+Win Odds: 4000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Robert Macintyre
+Win Odds: 4500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Akshay Bhatia
+Win Odds: 5000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Russell Henley
+Win Odds: 5000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Tony Finau
+Win Odds: 5500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Corey Conners
+Win Odds: 6600
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Jason Day
+Win Odds: 6600
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Patrick Reed
+Win Odds: 6600
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Sepp Straka
+Win Odds: 6600
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Joohyung Kim
+Win Odds: 6600
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Wyndham Clark
+Win Odds: 6600
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Cameron Young
+Win Odds: 8000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Dustin Johnson
+Win Odds: 8000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Sahith Theegala
+Win Odds: 8000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Sam Burns
+Win Odds: 8000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Sungjae Im
+Win Odds: 8000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Maverick Mcnealy
+Win Odds: 8000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Matthew Fitzpatrick
+Win Odds: 9000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Daniel Berger
+Win Odds: 9000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Justin Rose
+Win Odds: 10000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Sergio Garcia
+Win Odds: 10000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Adam Scott
+Win Odds: 12500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Byeong Hun An
+Win Odds: 12500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Keegan Bradley
+Win Odds: 12500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Max Homa
+Win Odds: 12500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Nicolai Hojgaard
+Win Odds: 12500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Phil Mickelson
+Win Odds: 12500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Thomas Detry
+Win Odds: 12500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Aaron Rai
+Win Odds: 12500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Billy Horschel
+Win Odds: 12500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Davis Thompson
+Win Odds: 12500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Taylor Pendrith
+Win Odds: 12500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: J. J. Spaun
+Win Odds: 12500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Lucas Glover
+Win Odds: 15000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Max Greyserman
+Win Odds: 15000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Rasmus Hojgaard
+Win Odds: 15000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Laurie Canter
+Win Odds: 15000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Michael Kim
+Win Odds: 15000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Brian Harman
+Win Odds: 17500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Cameron Davis
+Win Odds: 17500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Harris English
+Win Odds: 17500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Nicholas Dunlap
+Win Odds: 17500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Christiaan Bezuidenhout
+Win Odds: 17500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Denny McCarthy
+Win Odds: 20000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: J.T. Poston
+Win Odds: 20000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Nick Taylor
+Win Odds: 20000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Stephan Jaeger
+Win Odds: 20000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Davis Riley
+Win Odds: 20000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Tom Hoge
+Win Odds: 20000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Chris Kirk
+Win Odds: 22500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Nico Echavarria
+Win Odds: 22500
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Austin Eckroat
+Win Odds: 25000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Jhonattan Vegas
+Win Odds: 25000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Joe Highsmith
+Win Odds: 25000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Kevin Yu
+Win Odds: 25000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Adam Schenk
+Win Odds: 30000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Charl Schwartzel
+Win Odds: 30000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Matt McCarty
+Win Odds: 30000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Patton Kizzire
+Win Odds: 30000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Thriston Lawrence
+Win Odds: 30000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Danny Willett
+Win Odds: 35000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Matthieu Pavon
+Win Odds: 35000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Bubba Watson
+Win Odds: 40000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Ben Campbell
+Win Odds: 40000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Jose Luis Ballester
+Win Odds: 50000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Justin Harding
+Win Odds: 50000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Zach Johnson
+Win Odds: 100000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Angel Cabrera
+Win Odds: 100000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Bernhard Langer
+Win Odds: 100000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Evan Beck
+Win Odds: 100000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Hiroshi Iwata
+Win Odds: 100000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Noah Kent
+Win Odds: 100000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Rafael Campos
+Win Odds: 100000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Fred Couples
+Win Odds: 200000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Mike Weir
+Win Odds: 200000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Vijay Singh
+Win Odds: 200000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Jose Maria Olazábal
+Win Odds: 300000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Nicolas Echavarria
+Win Odds: 15000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------
+Golfer: Justin Hastings
+Win Odds: 50000
+Top 20 Odds: N/A
+Make Cut Odds: N/A
+------------------------------

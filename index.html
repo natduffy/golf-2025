@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masters 2025 Odds</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        h1 {
+            color: #006747;  /* Masters green */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .controls {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #006747;
+            color: white;
+            cursor: pointer;
+        }
+        
+        th:hover {
+            background-color: #004d35;
+        }
+        
+        tr {
+            transition: all 0.3s ease;
+        }
+        
+        tr.checked {
+            background-color: #f8f8f8;
+            color: #999;
+        }
+        
+        tr.checked td {
+            text-decoration: line-through;
+            transition: text-decoration 0.25s ease;
+        }
+        
+        .checkbox-cell {
+            width: 40px;
+            text-align: center;
+        }
+        
+        .odds-cell {
+            text-align: right;
+            font-family: monospace;
+        }
+        
+        .sort-icon {
+            margin-left: 5px;
+        }
+        
+        button {
+            padding: 8px 16px;
+            background-color: #006747;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        button:hover {
+            background-color: #004d35;
+        }
+        
+        /* Animation for row movement */
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0.7; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0.7; }
+            to { opacity: 1; }
+        }
+        
+        tr.moving {
+            animation: fadeOut 0.25s ease forwards;
+        }
+        
+        tr.moved {
+            animation: fadeIn 0.25s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <h1>Masters Tournament 2025 - Odds</h1>
+    
+    <div class="controls">
+        <button onclick="resetList()">Reset List</button>
+    </div>
+    
+    <table id="oddsTable">
+        <thead>
+            <tr>
+                <th class="checkbox-cell">Select</th>
+                <th onclick="sortTable(1)">Golfer <span class="sort-icon">↕</span></th>
+                <th onclick="sortTable(2)">Win Odds <span class="sort-icon">↕</span></th>
+                <th onclick="sortTable(3)">Top 20 Odds <span class="sort-icon">↕</span></th>
+                <th onclick="sortTable(4)">Top 40 Odds <span class="sort-icon">↕</span></th>
+            </tr>
+        </thead>
+        <tbody id="oddsBody">
+            <!-- Data will be populated by JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        // Store the original data and current state
+        let originalData = [];
+        let currentData = [];
+        let currentSortColumn = 2; // Default sort by Win Odds
+        let isTransitioning = false;
+        
+        // Function to parse odds from text file
+        async function loadOddsData() {
+            try {
+                const response = await fetch('masters_odds_20250407_082738.txt');
+                const text = await response.text();
+                const lines = text.split('\n');
+                
+                let currentGolfer = {};
+                
+                lines.forEach(line => {
+                    if (line.startsWith('Golfer: ')) {
+                        if (Object.keys(currentGolfer).length > 0) {
+                            originalData.push({...currentGolfer});
+                        }
+                        currentGolfer = {
+                            golfer: line.replace('Golfer: ', ''),
+                            winOdds: 'N/A',
+                            top20Odds: 'N/A',
+                            top40Odds: 'N/A',
+                            checked: false
+                        };
+                    } else if (line.startsWith('Win Odds: ')) {
+                        currentGolfer.winOdds = line.replace('Win Odds: ', '');
+                    } else if (line.startsWith('Top 20 Odds: ')) {
+                        currentGolfer.top20Odds = line.replace('Top 20 Odds: ', '');
+                    } else if (line.startsWith('Top 40 Odds: ')) {
+                        currentGolfer.top40Odds = line.replace('Top 40 Odds: ', '');
+                    }
+                });
+                
+                // Add the last golfer
+                if (Object.keys(currentGolfer).length > 0) {
+                    originalData.push(currentGolfer);
+                }
+                
+                currentData = [...originalData];
+                renderTable();
+            } catch (error) {
+                console.error('Error loading odds data:', error);
+            }
+        }
+        
+        // Function to render the table
+        function renderTable() {
+            const tbody = document.getElementById('oddsBody');
+            tbody.innerHTML = '';
+            
+            // Sort checked items to the bottom
+            currentData.sort((a, b) => {
+                if (a.checked === b.checked) return 0;
+                return a.checked ? 1 : -1;
+            });
+            
+            currentData.forEach((item, index) => {
+                const tr = document.createElement('tr');
+                if (item.checked) {
+                    tr.classList.add('checked');
+                }
+                
+                tr.innerHTML = `
+                    <td class="checkbox-cell">
+                        <input type="checkbox" ${item.checked ? 'checked' : ''} 
+                               onchange="toggleGolfer(${index})">
+                    </td>
+                    <td>${item.golfer}</td>
+                    <td class="odds-cell">${item.winOdds}</td>
+                    <td class="odds-cell">${item.top20Odds}</td>
+                    <td class="odds-cell">${item.top40Odds}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+        
+        // Function to sort the table
+        function sortTable(columnIndex) {
+            // Update the current sort column
+            currentSortColumn = columnIndex;
+            
+            currentData.sort((a, b) => {
+                let aValue, bValue;
+                
+                switch(columnIndex) {
+                    case 1: // Golfer name
+                        aValue = a.golfer;
+                        bValue = b.golfer;
+                        return aValue.localeCompare(bValue);
+                    case 2: // Win Odds
+                        aValue = parseFloat(a.winOdds.replace(/[^0-9.-]+/g, '')) || Infinity;
+                        bValue = parseFloat(b.winOdds.replace(/[^0-9.-]+/g, '')) || Infinity;
+                        return aValue - bValue;
+                    case 3: // Top 20 Odds
+                        aValue = parseFloat(a.top20Odds.replace(/[^0-9.-]+/g, '')) || Infinity;
+                        bValue = parseFloat(b.top20Odds.replace(/[^0-9.-]+/g, '')) || Infinity;
+                        return aValue - bValue;
+                    case 4: // Top 40 Odds
+                        aValue = parseFloat(a.top40Odds.replace(/[^0-9.-]+/g, '')) || Infinity;
+                        bValue = parseFloat(b.top40Odds.replace(/[^0-9.-]+/g, '')) || Infinity;
+                        return aValue - bValue;
+                }
+            });
+            
+            renderTable();
+            
+            // Update sort icons
+            const headers = document.querySelectorAll('th');
+            headers.forEach((header, index) => {
+                const icon = header.querySelector('.sort-icon');
+                if (icon) {
+                    icon.textContent = index === columnIndex ? '↓' : '↕';
+                }
+            });
+        }
+        
+        // Function to toggle golfer checked state with animation
+        function toggleGolfer(index) {
+            if (isTransitioning) return; // Prevent multiple transitions at once
+            
+            isTransitioning = true;
+            currentData[index].checked = !currentData[index].checked;
+            
+            // First, just update the visual state (strikethrough)
+            const tbody = document.getElementById('oddsBody');
+            const rows = tbody.getElementsByTagName('tr');
+            
+            // Find the row for this golfer
+            for (let i = 0; i < rows.length; i++) {
+                const checkbox = rows[i].querySelector('input[type="checkbox"]');
+                if (checkbox && checkbox.checked === currentData[index].checked) {
+                    if (currentData[index].checked) {
+                        rows[i].classList.add('checked');
+                        rows[i].classList.add('moving');
+                    } else {
+                        rows[i].classList.remove('checked');
+                    }
+                    break;
+                }
+            }
+            
+            // Wait for the strikethrough animation to complete before resorting
+            setTimeout(() => {
+                // Remove the moving class from all rows
+                for (let i = 0; i < rows.length; i++) {
+                    rows[i].classList.remove('moving');
+                    if (rows[i].classList.contains('checked')) {
+                        rows[i].classList.add('moved');
+                    }
+                }
+                
+                // Complete the resort after a short delay
+                setTimeout(() => {
+                    renderTable();
+                    isTransitioning = false;
+                }, 250);
+            }, 250);
+        }
+        
+        // Function to reset the list
+        function resetList() {
+            currentData = originalData.map(item => ({...item, checked: false}));
+            currentSortColumn = 2; // Reset to default sort (Win Odds)
+            sortTable(currentSortColumn); // Re-sort the table
+        }
+        
+        // Load data when page loads
+        window.onload = loadOddsData;
+    </script>
+</body>
+</html> 

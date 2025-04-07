@@ -1,0 +1,380 @@
+Golfer: Scottie Scheffler
+Win Odds: 450
+Top 20 Odds: N/A
+Top 40 Odds: -2000
+
+Golfer: Rory McIlroy
+Win Odds: 650
+Top 20 Odds: N/A
+Top 40 Odds: -1100
+
+Golfer: Collin Morikawa
+Win Odds: 1400
+Top 20 Odds: N/A
+Top 40 Odds: -575
+
+Golfer: Jon Rahm
+Win Odds: 1600
+Top 20 Odds: N/A
+Top 40 Odds: -600
+
+Golfer: Ludvig Aberg
+Win Odds: 1600
+Top 20 Odds: N/A
+Top 40 Odds: -450
+
+Golfer: Bryson DeChambeau
+Win Odds: 1800
+Top 20 Odds: N/A
+Top 40 Odds: -340
+
+Golfer: Xander Schauffele
+Win Odds: 2000
+Top 20 Odds: N/A
+Top 40 Odds: -450
+
+Golfer: Justin Thomas
+Win Odds: 2200
+Top 20 Odds: N/A
+Top 40 Odds: -450
+
+Golfer: Hideki Matsuyama
+Win Odds: 2800
+Top 20 Odds: N/A
+Top 40 Odds: -340
+
+Golfer: Joaquin Niemann
+Win Odds: 2800
+Top 20 Odds: N/A
+Top 40 Odds: -350
+
+Golfer: Patrick Cantlay
+Win Odds: 2800
+Top 20 Odds: N/A
+Top 40 Odds: -250
+
+Golfer: Viktor Hovland
+Win Odds: 2800
+Top 20 Odds: N/A
+Top 40 Odds: -250
+
+Golfer: Brooks Koepka
+Win Odds: 3000
+Top 20 Odds: N/A
+Top 40 Odds: -280
+
+Golfer: Jordan Spieth
+Win Odds: 3000
+Top 20 Odds: N/A
+Top 40 Odds: -340
+
+Golfer: Tommy Fleetwood
+Win Odds: 3300
+Top 20 Odds: N/A
+Top 40 Odds: -340
+
+Golfer: Tyrrell Hatton
+Win Odds: 3300
+Top 20 Odds: N/A
+Top 40 Odds: -280
+
+Golfer: Cameron Smith
+Win Odds: 4000
+Top 20 Odds: N/A
+Top 40 Odds: -190
+
+Golfer: Min Woo Lee
+Win Odds: 4000
+Top 20 Odds: N/A
+Top 40 Odds: -230
+
+Golfer: Shane Lowry
+Win Odds: 4000
+Top 20 Odds: N/A
+Top 40 Odds: -280
+
+Golfer: Will Zalatoris
+Win Odds: 4000
+Top 20 Odds: N/A
+Top 40 Odds: -250
+
+Golfer: Akshay Bhatia
+Win Odds: 5000
+Top 20 Odds: N/A
+Top 40 Odds: -200
+
+Golfer: Russell Henley
+Win Odds: 5000
+Top 20 Odds: N/A
+Top 40 Odds: -280
+
+Golfer: Tony Finau
+Win Odds: 5500
+Top 20 Odds: N/A
+Top 40 Odds: -190
+
+Golfer: Corey Conners
+Win Odds: 6600
+Top 20 Odds: N/A
+Top 40 Odds: -230
+
+Golfer: Jason Day
+Win Odds: 6600
+Top 20 Odds: N/A
+Top 40 Odds: -190
+
+Golfer: Patrick Reed
+Win Odds: 6600
+Top 20 Odds: N/A
+Top 40 Odds: -165
+
+Golfer: Sepp Straka
+Win Odds: 6600
+Top 20 Odds: N/A
+Top 40 Odds: -200
+
+Golfer: Joohyung Kim
+Win Odds: 6600
+Top 20 Odds: N/A
+Top 40 Odds: -150
+
+Golfer: Wyndham Clark
+Win Odds: 6600
+Top 20 Odds: N/A
+Top 40 Odds: -165
+
+Golfer: Cameron Young
+Win Odds: 8000
+Top 20 Odds: N/A
+Top 40 Odds: 130
+
+Golfer: Dustin Johnson
+Win Odds: 8000
+Top 20 Odds: N/A
+Top 40 Odds: -125
+
+Golfer: Sahith Theegala
+Win Odds: 8000
+Top 20 Odds: N/A
+Top 40 Odds: -140
+
+Golfer: Sam Burns
+Win Odds: 8000
+Top 20 Odds: N/A
+Top 40 Odds: -125
+
+Golfer: Sungjae Im
+Win Odds: 8000
+Top 20 Odds: N/A
+Top 40 Odds: -150
+
+Golfer: Matthew Fitzpatrick
+Win Odds: 9000
+Top 20 Odds: N/A
+Top 40 Odds: -125
+
+Golfer: Daniel Berger
+Win Odds: 9000
+Top 20 Odds: N/A
+Top 40 Odds: -175
+
+Golfer: Sergio Garcia
+Win Odds: 10000
+Top 20 Odds: N/A
+Top 40 Odds: -230
+
+Golfer: Justin Rose
+Win Odds: 10000
+Top 20 Odds: N/A
+Top 40 Odds: -165
+
+Golfer: Keegan Bradley
+Win Odds: 12500
+Top 20 Odds: N/A
+Top 40 Odds: -165
+
+Golfer: Max Homa
+Win Odds: 12500
+Top 20 Odds: N/A
+Top 40 Odds: 120
+
+Golfer: Thomas Detry
+Win Odds: 12500
+Top 20 Odds: N/A
+Top 40 Odds: -115
+
+Golfer: Aaron Rai
+Win Odds: 12500
+Top 20 Odds: N/A
+Top 40 Odds: -165
+
+Golfer: Billy Horschel
+Win Odds: 12500
+Top 20 Odds: N/A
+Top 40 Odds: -115
+
+Golfer: Davis Thompson
+Win Odds: 12500
+Top 20 Odds: N/A
+Top 40 Odds: -140
+
+Golfer: Taylor Pendrith
+Win Odds: 12500
+Top 20 Odds: N/A
+Top 40 Odds: -125
+
+Golfer: Adam Scott
+Win Odds: 12500
+Top 20 Odds: N/A
+Top 40 Odds: -125
+
+Golfer: Byeong Hun An
+Win Odds: 12500
+Top 20 Odds: N/A
+Top 40 Odds: -140
+
+Golfer: Phil Mickelson
+Win Odds: 12500
+Top 20 Odds: N/A
+Top 40 Odds: 105
+
+Golfer: Nicolai Hojgaard
+Win Odds: 12500
+Top 20 Odds: N/A
+Top 40 Odds: 100
+
+Golfer: Lucas Glover
+Win Odds: 15000
+Top 20 Odds: N/A
+Top 40 Odds: -150
+
+Golfer: Rasmus Hojgaard
+Win Odds: 15000
+Top 20 Odds: N/A
+Top 40 Odds: -150
+
+Golfer: Laurie Canter
+Win Odds: 15000
+Top 20 Odds: N/A
+Top 40 Odds: -140
+
+Golfer: Michael Kim
+Win Odds: 15000
+Top 20 Odds: N/A
+Top 40 Odds: -140
+
+Golfer: Nicolas Echavarria
+Win Odds: 15000
+Top 20 Odds: N/A
+Top 40 Odds: 140
+
+Golfer: Max Greyserman
+Win Odds: 15000
+Top 20 Odds: N/A
+Top 40 Odds: 110
+
+Golfer: Brian Harman
+Win Odds: 17500
+Top 20 Odds: N/A
+Top 40 Odds: -105
+
+Golfer: Harris English
+Win Odds: 17500
+Top 20 Odds: N/A
+Top 40 Odds: -115
+
+Golfer: Cameron Davis
+Win Odds: 17500
+Top 20 Odds: N/A
+Top 40 Odds: 135
+
+Golfer: Christiaan Bezuidenhout
+Win Odds: 17500
+Top 20 Odds: N/A
+Top 40 Odds: 105
+
+Golfer: Denny McCarthy
+Win Odds: 20000
+Top 20 Odds: N/A
+Top 40 Odds: -140
+
+Golfer: J.T. Poston
+Win Odds: 20000
+Top 20 Odds: N/A
+Top 40 Odds: -140
+
+Golfer: Nick Taylor
+Win Odds: 20000
+Top 20 Odds: N/A
+Top 40 Odds: 100
+
+Golfer: Stephan Jaeger
+Win Odds: 20000
+Top 20 Odds: N/A
+Top 40 Odds: -105
+
+Golfer: Davis Riley
+Win Odds: 20000
+Top 20 Odds: N/A
+Top 40 Odds: 180
+
+Golfer: Tom Hoge
+Win Odds: 20000
+Top 20 Odds: N/A
+Top 40 Odds: 125
+
+Golfer: Chris Kirk
+Win Odds: 22500
+Top 20 Odds: N/A
+Top 40 Odds: 115
+
+Golfer: Nico Echavarria
+Win Odds: 22500
+Top 20 Odds: N/A
+Top 40 Odds: 130
+
+Golfer: Austin Eckroat
+Win Odds: 25000
+Top 20 Odds: N/A
+Top 40 Odds: 125
+
+Golfer: Jhonattan Vegas
+Win Odds: 25000
+Top 20 Odds: N/A
+Top 40 Odds: 160
+
+Golfer: Joe Highsmith
+Win Odds: 25000
+Top 20 Odds: N/A
+Top 40 Odds: 115
+
+Golfer: Kevin Yu
+Win Odds: 25000
+Top 20 Odds: N/A
+Top 40 Odds: 115
+
+Golfer: Charl Schwartzel
+Win Odds: 30000
+Top 20 Odds: N/A
+Top 40 Odds: 150
+
+Golfer: Matt McCarty
+Win Odds: 30000
+Top 20 Odds: N/A
+Top 40 Odds: 135
+
+Golfer: Patton Kizzire
+Win Odds: 30000
+Top 20 Odds: N/A
+Top 40 Odds: 225
+
+Golfer: Thriston Lawrence
+Win Odds: 30000
+Top 20 Odds: N/A
+Top 40 Odds: 320
+
+Golfer: Matthieu Pavon
+Win Odds: 35000
+Top 20 Odds: N/A
+Top 40 Odds: 185
+
