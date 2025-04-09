@@ -201,11 +201,15 @@
             const tbody = document.getElementById('oddsBody');
             tbody.innerHTML = '';
             
-            currentData.forEach(golfer => {
+            currentData.forEach((golfer, index) => {
                 const row = document.createElement('tr');
+                if (golfer.checked) {
+                    row.classList.add('checked');
+                }
                 row.innerHTML = `
                     <td class="checkbox-cell">
-                        <input type="checkbox" onchange="toggleGolfer(this)">
+                        <input type="checkbox" ${golfer.checked ? 'checked' : ''} 
+                               onchange="toggleGolfer(${index})">
                     </td>
                     <td class="${golfer.isRedText ? 'red-text' : ''}">${golfer.name}</td>
                     <td class="odds-cell">${golfer.winOdds}</td>
@@ -266,19 +270,13 @@
             // First, just update the visual state (strikethrough)
             const tbody = document.getElementById('oddsBody');
             const rows = tbody.getElementsByTagName('tr');
+            const row = rows[index];
             
-            // Find the row for this golfer
-            for (let i = 0; i < rows.length; i++) {
-                const checkbox = rows[i].querySelector('input[type="checkbox"]');
-                if (checkbox && checkbox.checked === currentData[index].checked) {
-                    if (currentData[index].checked) {
-                        rows[i].classList.add('checked');
-                        rows[i].classList.add('moving');
-                    } else {
-                        rows[i].classList.remove('checked');
-                    }
-                    break;
-                }
+            if (currentData[index].checked) {
+                row.classList.add('checked');
+                row.classList.add('moving');
+            } else {
+                row.classList.remove('checked');
             }
             
             // Wait for the strikethrough animation to complete before resorting
