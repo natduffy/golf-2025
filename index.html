@@ -107,6 +107,11 @@
         tr.moved {
             animation: fadeIn 0.25s ease forwards;
         }
+
+        .red-text {
+            color: #ff0000;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -146,68 +151,68 @@
                 const lines = text.split('\n');
                 
                 let currentGolfer = {};
+                const redTextGolfers = new Set([
+                    'Xander Schauffele', 'Jon Rahm', 'Sepp Straka', 'Keegan Bradley',
+                    'Sergio Garcia', 'Ludvig Aberg', 'Viktor Hovland', 'Akshay Bhatia',
+                    'Corey Conners', 'Aaron Rai', 'Collin Morikawa', 'Russell Henley',
+                    'Patrick Cantlay', 'Michael Kim', 'Nicolai Hojgaard', 'Bryson DeChambeau',
+                    'Brooks Koepka', 'Jordan Spieth', 'Min Woo Lee', 'Tony Finau',
+                    'Scottie Scheffler', 'Joaquin Niemann', 'Maverick McNealy', 'Tyrrell Hatton',
+                    'Daniel Berger', 'Justin Thomas', 'Shane Lowry', 'Will Zalatoris',
+                    'Robert MacIntyre', 'Justin Rose', 'Rory McIlroy', 'Hideki Matsuyama',
+                    'Tommy Fleetwood', 'Cameron Smith', 'Adam Scott'
+                ]);
                 
                 lines.forEach(line => {
                     if (line.startsWith('Golfer: ')) {
-                        if (Object.keys(currentGolfer).length > 0) {
-                            originalData.push({...currentGolfer});
+                        if (currentGolfer.name) {
+                            originalData.push(currentGolfer);
                         }
+                        const name = line.replace('Golfer: ', '').trim();
                         currentGolfer = {
-                            golfer: line.replace('Golfer: ', ''),
+                            name: name,
+                            isRedText: redTextGolfers.has(name),
                             winOdds: 'N/A',
                             top20Odds: 'N/A',
-                            top40Odds: 'N/A',
-                            checked: false
+                            top40Odds: 'N/A'
                         };
                     } else if (line.startsWith('Win Odds: ')) {
-                        currentGolfer.winOdds = line.replace('Win Odds: ', '');
+                        currentGolfer.winOdds = line.replace('Win Odds: ', '').trim();
                     } else if (line.startsWith('Top 20 Odds: ')) {
-                        currentGolfer.top20Odds = line.replace('Top 20 Odds: ', '');
+                        currentGolfer.top20Odds = line.replace('Top 20 Odds: ', '').trim();
                     } else if (line.startsWith('Top 40 Odds: ')) {
-                        currentGolfer.top40Odds = line.replace('Top 40 Odds: ', '');
+                        currentGolfer.top40Odds = line.replace('Top 40 Odds: ', '').trim();
                     }
                 });
                 
-                // Add the last golfer
-                if (Object.keys(currentGolfer).length > 0) {
+                if (currentGolfer.name) {
                     originalData.push(currentGolfer);
                 }
                 
                 currentData = [...originalData];
-                renderTable();
+                updateTable();
             } catch (error) {
                 console.error('Error loading odds data:', error);
             }
         }
         
-        // Function to render the table
-        function renderTable() {
+        // Function to update the table with current data
+        function updateTable() {
             const tbody = document.getElementById('oddsBody');
             tbody.innerHTML = '';
             
-            // Sort checked items to the bottom
-            currentData.sort((a, b) => {
-                if (a.checked === b.checked) return 0;
-                return a.checked ? 1 : -1;
-            });
-            
-            currentData.forEach((item, index) => {
-                const tr = document.createElement('tr');
-                if (item.checked) {
-                    tr.classList.add('checked');
-                }
-                
-                tr.innerHTML = `
+            currentData.forEach(golfer => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
                     <td class="checkbox-cell">
-                        <input type="checkbox" ${item.checked ? 'checked' : ''} 
-                               onchange="toggleGolfer(${index})">
+                        <input type="checkbox" onchange="toggleGolfer(this)">
                     </td>
-                    <td>${item.golfer}</td>
-                    <td class="odds-cell">${item.winOdds}</td>
-                    <td class="odds-cell">${item.top20Odds}</td>
-                    <td class="odds-cell">${item.top40Odds}</td>
+                    <td class="${golfer.isRedText ? 'red-text' : ''}">${golfer.name}</td>
+                    <td class="odds-cell">${golfer.winOdds}</td>
+                    <td class="odds-cell">${golfer.top20Odds}</td>
+                    <td class="odds-cell">${golfer.top40Odds}</td>
                 `;
-                tbody.appendChild(tr);
+                tbody.appendChild(row);
             });
         }
         
@@ -221,8 +226,8 @@
                 
                 switch(columnIndex) {
                     case 1: // Golfer name
-                        aValue = a.golfer;
-                        bValue = b.golfer;
+                        aValue = a.name;
+                        bValue = b.name;
                         return aValue.localeCompare(bValue);
                     case 2: // Win Odds
                         aValue = parseFloat(a.winOdds.replace(/[^0-9.-]+/g, '')) || Infinity;
@@ -239,7 +244,7 @@
                 }
             });
             
-            renderTable();
+            updateTable();
             
             // Update sort icons
             const headers = document.querySelectorAll('th');
@@ -288,7 +293,7 @@
                 
                 // Complete the resort after a short delay
                 setTimeout(() => {
-                    renderTable();
+                    updateTable();
                     isTransitioning = false;
                 }, 250);
             }, 250);
