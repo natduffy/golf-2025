@@ -1,154 +1,154 @@
-Golfer: Scottie Scheffler ***
+Golfer: Scottie Scheffler
 Win Odds: 450
 Top 20 Odds: -590
 Top 40 Odds: -2000
 
-Golfer: Rory McIlroy ***
+Golfer: Rory McIlroy
 Win Odds: 650
 Top 20 Odds: -400
 Top 40 Odds: -1100
 
-Golfer: Collin Morikawa ***
+Golfer: Collin Morikawa
 Win Odds: 1400
 Top 20 Odds: -175
 Top 40 Odds: -575
 
-Golfer: Jon Rahm ***
+Golfer: Jon Rahm
 Win Odds: 1600
 Top 20 Odds: -159
 Top 40 Odds: -600
 
-Golfer: Ludvig Aberg ***
+Golfer: Ludvig Aberg
 Win Odds: 1600
 Top 20 Odds: -110
 Top 40 Odds: -450
 
-Golfer: Bryson DeChambeau ***
+Golfer: Bryson DeChambeau
 Win Odds: 1800
 Top 20 Odds: -137
 Top 40 Odds: -340
 
-Golfer: Xander Schauffele ***
+Golfer: Xander Schauffele
 Win Odds: 2000
 Top 20 Odds: -137
 Top 40 Odds: -450
 
-Golfer: Justin Thomas **
+Golfer: Justin Thomas
 Win Odds: 2200
 Top 20 Odds: N/A
 Top 40 Odds: -450
 
-Golfer: Hideki Matsuyama **
+Golfer: Hideki Matsuyama
 Win Odds: 2800
 Top 20 Odds: 130
 Top 40 Odds: -340
 
-Golfer: Joaquin Niemann **
+Golfer: Joaquin Niemann
 Win Odds: 2800
 Top 20 Odds: 110
 Top 40 Odds: -350
 
-Golfer: Patrick Cantlay **
+Golfer: Patrick Cantlay
 Win Odds: 2800
 Top 20 Odds: 130
 Top 40 Odds: -250
 
-Golfer: Viktor Hovland **
+Golfer: Viktor Hovland
 Win Odds: 2800
 Top 20 Odds: 130
 Top 40 Odds: -250
 
-Golfer: Brooks Koepka ***
+Golfer: Brooks Koepka
 Win Odds: 3000
 Top 20 Odds: 130
 Top 40 Odds: -280
 
-Golfer: Jordan Spieth **
+Golfer: Jordan Spieth
 Win Odds: 3000
 Top 20 Odds: 130
 Top 40 Odds: -340
 
-Golfer: Tommy Fleetwood **
+Golfer: Tommy Fleetwood
 Win Odds: 3300
 Top 20 Odds: 130
 Top 40 Odds: -340
 
-Golfer: Tyrrell Hatton **
+Golfer: Tyrrell Hatton
 Win Odds: 3300
 Top 20 Odds: 160
 Top 40 Odds: -280
 
-Golfer: Cameron Smith **
+Golfer: Cameron Smith
 Win Odds: 4000
 Top 20 Odds: 175
 Top 40 Odds: -190
 
-Golfer: Min Woo Lee **
+Golfer: Min Woo Lee
 Win Odds: 4000
 Top 20 Odds: 175
 Top 40 Odds: -230
 
-Golfer: Shane Lowry **
+Golfer: Shane Lowry
 Win Odds: 4000
 Top 20 Odds: 130
 Top 40 Odds: -280
 
-Golfer: Will Zalatoris **
+Golfer: Will Zalatoris
 Win Odds: 4000
 Top 20 Odds: 175
 Top 40 Odds: -250
 
-Golfer: Robert MacIntyre **
+Golfer: Robert MacIntyre
 Win Odds: 4000
 Top 20 Odds: 175
 Top 40 Odds: -250
 
-Golfer: Maverick McNealy **
+Golfer: Maverick McNealy
 Win Odds: 4000
 Top 20 Odds: 175
 Top 40 Odds: -250
 
-Golfer: Akshay Bhatia *
+Golfer: Akshay Bhatia
 Win Odds: 5000
 Top 20 Odds: N/A
 Top 40 Odds: -200
 
-Golfer: Russell Henley **
+Golfer: Russell Henley
 Win Odds: 5000
 Top 20 Odds: 160
 Top 40 Odds: -280
 
-Golfer: Tony Finau *
+Golfer: Tony Finau
 Win Odds: 5500
 Top 20 Odds: 250
 Top 40 Odds: -190
 
-Golfer: Corey Conners *
+Golfer: Corey Conners
 Win Odds: 6600
 Top 20 Odds: 250
 Top 40 Odds: -230
 
-Golfer: Jason Day *
+Golfer: Jason Day
 Win Odds: 6600
 Top 20 Odds: 250
 Top 40 Odds: -190
 
-Golfer: Patrick Reed **
+Golfer: Patrick Reed
 Win Odds: 6600
 Top 20 Odds: N/A
 Top 40 Odds: -165
 
-Golfer: Sepp Straka **
+Golfer: Sepp Straka
 Win Odds: 6600
 Top 20 Odds: 250
 Top 40 Odds: -200
 
-Golfer: Joohyung Kim *
+Golfer: Joohyung Kim
 Win Odds: 6600
 Top 20 Odds: 300
 Top 40 Odds: -150
 
-Golfer: Wyndham Clark *
+Golfer: Wyndham Clark
 Win Odds: 6600
 Top 20 Odds: 300
 Top 40 Odds: -165
@@ -158,32 +158,32 @@ Win Odds: 8000
 Top 20 Odds: 375
 Top 40 Odds: 130
 
-Golfer: Dustin Johnson *
+Golfer: Dustin Johnson
 Win Odds: 8000
 Top 20 Odds: 300
 Top 40 Odds: -125
 
-Golfer: Sahith Theegala *
+Golfer: Sahith Theegala
 Win Odds: 8000
 Top 20 Odds: 300
 Top 40 Odds: -140
 
-Golfer: Sam Burns *
+Golfer: Sam Burns
 Win Odds: 8000
 Top 20 Odds: 300
 Top 40 Odds: -125
 
-Golfer: Sungjae Im *
+Golfer: Sungjae Im
 Win Odds: 8000
 Top 20 Odds: 375
 Top 40 Odds: -150
 
-Golfer: Matthew Fitzpatrick *
+Golfer: Matthew Fitzpatrick
 Win Odds: 9000
 Top 20 Odds: 335
 Top 40 Odds: -125
 
-Golfer: Daniel Berger **
+Golfer: Daniel Berger
 Win Odds: 9000
 Top 20 Odds: 375
 Top 40 Odds: -175
@@ -193,12 +193,12 @@ Win Odds: 10000
 Top 20 Odds: 300
 Top 40 Odds: -230
 
-Golfer: Justin Rose **
+Golfer: Justin Rose
 Win Odds: 10000
 Top 20 Odds: 375
 Top 40 Odds: -165
 
-Golfer: Keegan Bradley **
+Golfer: Keegan Bradley
 Win Odds: 12500
 Top 20 Odds: 300
 Top 40 Odds: -165
@@ -208,7 +208,7 @@ Win Odds: 12500
 Top 20 Odds: 500
 Top 40 Odds: 120
 
-Golfer: Thomas Detry *
+Golfer: Thomas Detry
 Win Odds: 12500
 Top 20 Odds: N/A
 Top 40 Odds: -115
@@ -233,7 +233,7 @@ Win Odds: 12500
 Top 20 Odds: N/A
 Top 40 Odds: -125
 
-Golfer: Adam Scott *
+Golfer: Adam Scott
 Win Odds: 12500
 Top 20 Odds: N/A
 Top 40 Odds: -125
@@ -248,12 +248,12 @@ Win Odds: 12500
 Top 20 Odds: N/A
 Top 40 Odds: 105
 
-Golfer: Nicolai Hojgaard **
+Golfer: Nicolai Hojgaard
 Win Odds: 12500
 Top 20 Odds: N/A
 Top 40 Odds: 100
 
-Golfer: Lucas Glover *
+Golfer: Lucas Glover
 Win Odds: 15000
 Top 20 Odds: N/A
 Top 40 Odds: -150
@@ -268,7 +268,7 @@ Win Odds: 15000
 Top 20 Odds: N/A
 Top 40 Odds: -140
 
-Golfer: Michael Kim *
+Golfer: Michael Kim
 Win Odds: 15000
 Top 20 Odds: N/A
 Top 40 Odds: -140
@@ -283,12 +283,12 @@ Win Odds: 15000
 Top 20 Odds: N/A
 Top 40 Odds: 110
 
-Golfer: Brian Harman *
+Golfer: Brian Harman
 Win Odds: 17500
 Top 20 Odds: N/A
 Top 40 Odds: -105
 
-Golfer: Harris English **
+Golfer: Harris English
 Win Odds: 17500
 Top 20 Odds: N/A
 Top 40 Odds: -115
@@ -333,7 +333,7 @@ Win Odds: 20000
 Top 20 Odds: N/A
 Top 40 Odds: 125
 
-Golfer: Chris Kirk *
+Golfer: Chris Kirk
 Win Odds: 22500
 Top 20 Odds: N/A
 Top 40 Odds: 115
