@@ -119,7 +119,7 @@
     </style>
 </head>
 <body>
-    <h1>Masters Tournament 2025 - Odds</h1>
+    <h1>Masters 2025</h1>
     
     <div class="controls">
         <button onclick="resetList()">Reset List</button>
@@ -167,12 +167,14 @@
                     'Tommy Fleetwood', 'Cameron Smith', 'Adam Scott'
                 ]);
                 
+                const normalizeName = (name) => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+                
                 lines.forEach(line => {
                     if (line.startsWith('Golfer: ')) {
                         if (currentGolfer.name) {
                             originalData.push(currentGolfer);
                         }
-                        const name = line.replace('Golfer: ', '').trim();
+                        const name = normalizeName(line.replace('Golfer: ', ''));
                         const isRedText = redTextGolfers.has(name);
                         console.log(`Golfer: ${name}, Red Text: ${isRedText}`); // Debug log
                         currentGolfer = {
