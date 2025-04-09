@@ -109,8 +109,12 @@
         }
 
         .red-text {
-            color: #ff0000;
-            font-weight: bold;
+            color: #ff0000 !important;
+            font-weight: bold !important;
+        }
+        
+        tr.checked .red-text {
+            color: #ff6666 !important;
         }
     </style>
 </head>
@@ -169,12 +173,15 @@
                             originalData.push(currentGolfer);
                         }
                         const name = line.replace('Golfer: ', '').trim();
+                        const isRedText = redTextGolfers.has(name);
+                        console.log(`Golfer: ${name}, Red Text: ${isRedText}`); // Debug log
                         currentGolfer = {
                             name: name,
-                            isRedText: redTextGolfers.has(name),
+                            isRedText: isRedText,
                             winOdds: 'N/A',
                             top20Odds: 'N/A',
-                            top40Odds: 'N/A'
+                            top40Odds: 'N/A',
+                            checked: false
                         };
                     } else if (line.startsWith('Win Odds: ')) {
                         currentGolfer.winOdds = line.replace('Win Odds: ', '').trim();
