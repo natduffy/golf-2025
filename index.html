@@ -132,7 +132,7 @@
                 <th onclick="sortTable(1)">Golfer <span class="sort-icon">↕</span></th>
                 <th onclick="sortTable(2)">Win Odds <span class="sort-icon">↕</span></th>
                 <th onclick="sortTable(3)">Top 20 Odds <span class="sort-icon">↕</span></th>
-                <th onclick="sortTable(4)">Top 40 Odds <span class="sort-icon">↕</span></th>
+                <th onclick="sortTable(4)">Final Score <span class="sort-icon">↕</span></th>
             </tr>
         </thead>
         <tbody id="oddsBody">
@@ -144,7 +144,7 @@
         // Store the original data and current state
         let originalData = [];
         let currentData = [];
-        let currentSortColumn = 2; // Default sort by Win Odds
+        let currentSortColumn = 4; // Default sort by Final Score instead of Win Odds
         let isTransitioning = false;
         
         // Function to parse odds from text file
@@ -155,6 +155,62 @@
                 const lines = text.split('\n');
                 
                 let currentGolfer = {};
+                const finalScores = {
+                    'Rory McIlroy': '-11',
+                    'Justin Rose': '-11',
+                    'Patrick Reed': '-9',
+                    'Scottie Scheffler': '-8',
+                    'Sungjae Im': '-7',
+                    'Bryson DeChambeau': '-7',
+                    'Ludvig Aberg': '-6',
+                    'Jason Day': '-5',
+                    'Zach Johnson': '-5',
+                    'Corey Conners': '-5',
+                    'Xander Schauffele': '-5',
+                    'Harris English': '-4',
+                    'Max Homa': '-4',
+                    'Jordan Spieth': '-3',
+                    'Bubba Watson': '-3',
+                    'Tom Hoge': '-3',
+                    'Tyrrell Hatton': '-3',
+                    'Jon Rahm': '-3',
+                    'Collin Morikawa': '-3',
+                    'Michael McCarty': '-3',
+                    'Hideki Matsuyama': '-2',
+                    'Byeong Hun An': '-2',
+                    'Daniel Berger': '-2',
+                    'Tommy Fleetwood': '-2',
+                    'Davis Riley': '-2',
+                    'Viktor Hovland': '-2',
+                    'Michael Kim': '-1',
+                    'Aaron Rai': '-1',
+                    'Denny McCarthy': 'E',
+                    'Sahith Theegala': 'E',
+                    'Joaquin Niemann': 'E',
+                    'Ben Campbell': '1',
+                    'Maverick McNealy': '1',
+                    'Matt Greyserman': '1',
+                    'Rasmus Hojgaard': '1',
+                    'Patrick Cantlay': '2',
+                    'Brian Harman': '2',
+                    'Charl Schwartzel': '2',
+                    'Justin Thomas': '2',
+                    'Nick Taylor': '3',
+                    'Matt Fitzpatrick': '3',
+                    'Shane Lowry': '4',
+                    'Danny Willett': '4',
+                    'JT Poston': '4',
+                    'Akshay Bhatia': '4',
+                    'Sam Burns': '5',
+                    'Wyndham Clark': '5',
+                    'Davis Thompson': '5',
+                    'Min Woo Lee': '6',
+                    'Joaquin Spaun': '7',
+                    'Nicolas Echavarria': '8',
+                    'Stephan Jaeger': '9',
+                    'Joohyung Kim': '9'
+                };
+                
                 const redTextGolfers = new Set([
                     'Xander Schauffele', 'Jon Rahm', 'Sepp Straka', 'Keegan Bradley',
                     'Sergio Garcia', 'Ludvig Aberg', 'Viktor Hovland', 'Akshay Bhatia',
@@ -164,10 +220,17 @@
                     'Scottie Scheffler', 'Joaquin Niemann', 'Maverick McNealy', 'Tyrrell Hatton',
                     'Daniel Berger', 'Justin Thomas', 'Shane Lowry', 'Will Zalatoris',
                     'Robert MacIntyre', 'Justin Rose', 'Rory McIlroy', 'Hideki Matsuyama',
-                    'Tommy Fleetwood', 'Cameron Smith', 'Adam Scott'
+                    'Tommy Fleetwood', 'Cameron Smith', 'Adam Scott', 'Joohyung Kim'
                 ]);
                 
-                const normalizeName = (name) => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+                const normalizeName = (name) => {
+                    name = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+                    // Handle Tom Kim / Joohyung Kim variations
+                    if (name === 'Tom Kim' || name === 'T. Kim') {
+                        return 'Joohyung Kim';
+                    }
+                    return name;
+                };
                 
                 lines.forEach(line => {
                     if (line.startsWith('Golfer: ')) {
@@ -176,27 +239,36 @@
                         }
                         const name = normalizeName(line.replace('Golfer: ', ''));
                         const isRedText = redTextGolfers.has(name);
-                        console.log(`Golfer: ${name}, Red Text: ${isRedText}`); // Debug log
                         currentGolfer = {
                             name: name,
                             isRedText: isRedText,
                             winOdds: 'N/A',
                             top20Odds: 'N/A',
-                            top40Odds: 'N/A',
-                            checked: false
+                            finalScore: finalScores[name] || 'N/A'
                         };
                     } else if (line.startsWith('Win Odds: ')) {
                         currentGolfer.winOdds = line.replace('Win Odds: ', '').trim();
                     } else if (line.startsWith('Top 20 Odds: ')) {
                         currentGolfer.top20Odds = line.replace('Top 20 Odds: ', '').trim();
-                    } else if (line.startsWith('Top 40 Odds: ')) {
-                        currentGolfer.top40Odds = line.replace('Top 40 Odds: ', '').trim();
                     }
                 });
                 
                 if (currentGolfer.name) {
                     originalData.push(currentGolfer);
                 }
+
+                // Add any golfers from finalScores that aren't in the odds data
+                Object.keys(finalScores).forEach(name => {
+                    if (!originalData.some(golfer => golfer.name === name)) {
+                        originalData.push({
+                            name: name,
+                            isRedText: redTextGolfers.has(name),
+                            winOdds: 'N/A',
+                            top20Odds: 'N/A',
+                            finalScore: finalScores[name]
+                        });
+                    }
+                });
                 
                 currentData = [...originalData];
                 updateTable();
@@ -223,7 +295,7 @@
                     <td class="${golfer.isRedText ? 'red-text' : ''}">${golfer.name}</td>
                     <td class="odds-cell">${golfer.winOdds}</td>
                     <td class="odds-cell">${golfer.top20Odds}</td>
-                    <td class="odds-cell">${golfer.top40Odds}</td>
+                    <td class="odds-cell">${formatFinalScore(golfer.finalScore)}</td>
                 `;
                 tbody.appendChild(row);
             });
@@ -250,9 +322,18 @@
                         aValue = parseFloat(a.top20Odds.replace(/[^0-9.-]+/g, '')) || Infinity;
                         bValue = parseFloat(b.top20Odds.replace(/[^0-9.-]+/g, '')) || Infinity;
                         return aValue - bValue;
-                    case 4: // Top 40 Odds
-                        aValue = parseFloat(a.top40Odds.replace(/[^0-9.-]+/g, '')) || Infinity;
-                        bValue = parseFloat(b.top40Odds.replace(/[^0-9.-]+/g, '')) || Infinity;
+                    case 4: // Final Score
+                        // Convert scores to numeric values for comparison
+                        const parseScore = (score) => {
+                            if (score === 'MC' || score === 'N/A') return Infinity;
+                            if (score === 'E') return 0;
+                            return parseInt(score);
+                        };
+                        aValue = parseScore(a.finalScore);
+                        bValue = parseScore(b.finalScore);
+                        if (aValue === Infinity && bValue === Infinity) return 0;
+                        if (aValue === Infinity) return 1;
+                        if (bValue === Infinity) return -1;
                         return aValue - bValue;
                 }
             });
@@ -309,12 +390,21 @@
         // Function to reset the list
         function resetList() {
             currentData = originalData.map(item => ({...item, checked: false}));
-            currentSortColumn = 2; // Reset to default sort (Win Odds)
+            currentSortColumn = 4; // Reset to default sort (Final Score)
             sortTable(currentSortColumn); // Re-sort the table
         }
         
         // Load data when page loads
-        window.onload = loadOddsData;
+        window.onload = function() {
+            loadOddsData();
+            // Initial sort by final score after data loads
+            setTimeout(() => sortTable(4), 100);
+        };
+
+        // Function to format the final score display
+        function formatFinalScore(score) {
+            return score === 'N/A' ? 'MC' : score;
+        }
     </script>
 </body>
 </html> 
