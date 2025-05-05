@@ -1,42 +1,58 @@
-# Masters Golf Tournament Odds Scraper
+# PGA Championship 2025 Odds Tracker
 
-This application scrapes and displays odds for the 2025 Masters Golf Tournament, including:
-- Win odds
-- Top 20 finish odds
-- Make cut odds
+A web application that displays and tracks betting odds for the 2025 PGA Championship.
+
+## Features
+
+- Displays current betting odds from FanDuel (selected for having the most comprehensive golfer coverage)
+- Allows selecting golfers with checkboxes
+- Selected golfers are moved to the bottom of the list with a strikethrough effect
+- Sortable columns for golfer name, win odds, and top 20 odds
+- Reset button to clear all selections
+- Smooth animations when selecting/deselecting golfers
 
 ## Setup
 
-1. Make sure you have Python 3.7+ installed
-2. Install the required dependencies:
-```bash
-pip install -r requirements.txt
-```
+1. Install Python 3.x
+2. Install required packages:
+   ```bash
+   pip3 install requests
+   ```
+3. Set up your API key:
+   - Get an API key from [The Odds API](https://the-odds-api.com/)
+   - Add your API key to `pga_championship_odds.py`
 
 ## Usage
 
-Run the script with:
-```bash
-python masters_odds.py
-```
+1. Fetch the latest odds:
+   ```bash
+   python3 pga_championship_odds.py
+   ```
+   This will create a new text file with the current odds.
 
-The script will:
-1. Scrape the latest odds from oddschecker.com
-2. Save the results to a text file with timestamp (format: masters_odds_YYYYMMDD_HHMMSS.txt)
+2. Start the web server:
+   ```bash
+   python3 server.py
+   ```
 
-## Output Format
+3. Open your browser to `http://localhost:8000`
 
-The output file will contain:
-- Golfer name
-- Win odds
-- Top 20 finish odds
-- Make cut odds
+## Files
 
-Each golfer's information is separated by a line of dashes for easy reading.
+- `pga_championship_odds.py`: Fetches odds from The Odds API and saves them to a text file
+- `list_odds_files.py`: Lists available odds files sorted by timestamp
+- `server.py`: Serves the web interface
+- `index.html`: Web interface for viewing and interacting with the odds
 
-## Note
+## Data Source
 
-The odds are scraped from oddschecker.com. Please be aware that:
-- The odds are subject to change
-- Some odds may not be available for all golfers
-- The script requires an internet connection to function 
+Odds are sourced from FanDuel via The Odds API. FanDuel was selected as the primary odds provider because it offers:
+- The most comprehensive coverage of golfers (101 golfers listed)
+- Competitive odds
+- Regular updates
+
+## Notes
+
+- The odds are stored in text files with timestamps for historical tracking
+- The web interface automatically loads the most recent odds file
+- Selected golfers persist until the page is refreshed or the reset button is clicked 

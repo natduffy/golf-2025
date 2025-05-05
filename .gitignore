@@ -17,8 +17,8 @@ parts/
 sdist/
 var/
 *.egg-info/
-.installed
-.cfg
+.installed.cfg
+*.egg
 
 # Virtual Environment
 venv/
@@ -29,6 +29,9 @@ ENV/
 .vscode/
 *.swp
 *.swo
+
+# Project specific
+*_odds_*.txt
 
 # OS
 .DS_Store
