@@ -4,7 +4,7 @@ A web application that displays and tracks betting odds for the 2025 PGA Champio
 
 ## Features
 
-- Displays current betting odds from FanDuel (selected for having the most comprehensive golfer coverage)
+- Displays current betting odds from DraftKings (selected for having the most comprehensive golfer coverage)
 - Allows selecting golfers with checkboxes
 - Selected golfers are moved to the bottom of the list with a strikethrough effect
 - Sortable columns for golfer name, win odds, and top 20 odds
@@ -37,6 +37,20 @@ A web application that displays and tracks betting odds for the 2025 PGA Champio
 
 3. Open your browser to `http://localhost:8000`
 
+## Deployment
+
+### Build Command
+```bash
+pip3 install -r requirements.txt
+```
+
+### Start Command
+```bash
+python3 server.py
+```
+
+The server will start on port 8000. Make sure this port is available in your production environment.
+
 ## Files
 
 - `pga_championship_odds.py`: Fetches odds from The Odds API and saves them to a text file
@@ -46,8 +60,8 @@ A web application that displays and tracks betting odds for the 2025 PGA Champio
 
 ## Data Source
 
-Odds are sourced from FanDuel via The Odds API. FanDuel was selected as the primary odds provider because it offers:
-- The most comprehensive coverage of golfers (101 golfers listed)
+Odds are sourced from DraftKings via The Odds API. DraftKings was selected as the primary odds provider because it offers:
+- The most comprehensive coverage of golfers (155 golfers listed)
 - Competitive odds
 - Regular updates
 
