@@ -12,10 +12,19 @@ class CustomHandler(SimpleHTTPRequestHandler):
                 # Get the script path
                 script_path = self.path[1:]  # Remove leading slash
                 
+                # Set up environment for CGI
+                env = os.environ.copy()
+                env['REQUEST_METHOD'] = 'GET'
+                env['QUERY_STRING'] = ''
+                env['SCRIPT_NAME'] = self.path
+                env['SERVER_NAME'] = self.server.server_name
+                env['SERVER_PORT'] = str(self.server.server_port)
+                
                 # Run the Python script and capture output
                 result = subprocess.run([sys.executable, script_path], 
                                      capture_output=True, 
-                                     text=True)
+                                     text=True,
+                                     env=env)
                 
                 # Parse the output to separate headers and body
                 output_lines = result.stdout.split('\n')
@@ -59,8 +68,9 @@ def run(server_class=HTTPServer, handler_class=CustomHandler, port=8000):
     httpd = server_class(server_address, handler_class)
     print(f"Starting server on port {port}...")
     
-    # Open the browser automatically
-    webbrowser.open(f'http://localhost:{port}')
+    # Open the browser automatically in development
+    if os.environ.get('ENVIRONMENT') != 'production':
+        webbrowser.open(f'http://localhost:{port}')
     
     try:
         httpd.serve_forever()
