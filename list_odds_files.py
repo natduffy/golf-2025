@@ -10,25 +10,18 @@ def list_odds_files():
         # Sort files by timestamp (newest first)
         files.sort(reverse=True)
         
-        # Always return JSON, regardless of environment
-        response = {
-            'files': files,
-            'status': 'success'
-        }
-        
         # Set headers
         print('Content-Type: application/json')
         print('Access-Control-Allow-Origin: *')
         print()  # Empty line to separate headers from body
         
-        # Output JSON
-        print(json.dumps(response))
+        # Output just the array of files as expected by the frontend
+        print(json.dumps(files))
         
     except Exception as e:
         # Error response
         error_response = {
-            'status': 'error',
-            'message': str(e)
+            'error': str(e)
         }
         
         print('Content-Type: application/json')
