@@ -12,19 +12,13 @@ class CustomHandler(SimpleHTTPRequestHandler):
                 # Get the script path
                 script_path = self.path[1:]  # Remove leading slash
                 
-                # Set up environment for CGI
-                env = os.environ.copy()
-                env['REQUEST_METHOD'] = 'GET'
-                env['QUERY_STRING'] = ''
-                env['SCRIPT_NAME'] = self.path
-                env['SERVER_NAME'] = self.server.server_name
-                env['SERVER_PORT'] = str(self.server.server_port)
-                
                 # Run the Python script and capture output
                 result = subprocess.run([sys.executable, script_path], 
                                      capture_output=True, 
-                                     text=True,
-                                     env=env)
+                                     text=True)
+                
+                if result.returncode != 0:
+                    raise Exception(f"Script failed with error: {result.stderr}")
                 
                 # Parse the output to separate headers and body
                 output_lines = result.stdout.split('\n')
@@ -40,6 +34,12 @@ class CustomHandler(SimpleHTTPRequestHandler):
                         headers[key.strip()] = value.strip()
                 
                 body = '\n'.join(output_lines[body_start:])
+                
+                # Validate JSON
+                try:
+                    json.loads(body)
+                except json.JSONDecodeError:
+                    raise Exception("Invalid JSON response from script")
                 
                 # Send response
                 self.send_response(200)
@@ -58,7 +58,17 @@ class CustomHandler(SimpleHTTPRequestHandler):
                 self.wfile.write(body.encode())
                 
             except Exception as e:
-                self.send_error(500, f"Error executing script: {str(e)}")
+                # Send error response as JSON
+                error_response = {
+                    'status': 'error',
+                    'message': str(e)
+                }
+                
+                self.send_response(500)
+                self.send_header('Content-Type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps(error_response).encode())
         else:
             # Handle regular files as before
             super().do_GET()
