@@ -122,7 +122,7 @@
                 <th class="checkbox-cell">Select</th>
                 <th onclick="sortTable(1)">Golfer <span class="sort-icon">↕</span></th>
                 <th onclick="sortTable(2)">Win Odds <span class="sort-icon">↕</span></th>
-                <th onclick="sortTable(3)">Top 20 Odds <span class="sort-icon">↕</span></th>
+                <th onclick="sortTable(3)">Top 40 Odds <span class="sort-icon">↕</span></th>
             </tr>
         </thead>
         <tbody id="oddsBody">
@@ -136,6 +136,40 @@
         let currentData = [];
         let currentSortColumn = 2; // Default sort by Win Odds
         let isTransitioning = false;
+        
+        // List of golfers to highlight in bold blue
+        const blueNames = new Set([
+            'Jon Rahm',
+            'Collin Morikawa',
+            'Tommy Fleetwood',
+            'Sepp Straka',
+            'Russell Henley',
+            'Xander Schauffele',
+            'Viktor Hovland',
+            'Patrick Cantlay',
+            'Jason Day',
+            'Tony Finau',
+            'Justin Thomas',
+            'Ludvig Aberg',
+            'Shane Lowry',
+            'Corey Conners',
+            'Daniel Berger',
+            'Scottie Scheffler',
+            'Hideki Matsuyama',
+            'Joaquin Niemann',
+            'Si Woo Kim',
+            'Matt Fitzpatrick',
+            'Bryson DeChambeau',
+            'Tyrell Hatton',
+            'Jordan Spieth',
+            'Patrick Reed',
+            'Sungjae Im',
+            'Rory McIlroy',
+            'Brooks Koepka',
+            'Justin Rose',
+            'Keegan Bradley',
+            'Min Woo Lee'
+        ]);
         
         // Function to parse odds from text file
         async function loadOddsData() {
@@ -185,12 +219,12 @@
                         currentGolfer = {
                             name: name,
                             winOdds: 'N/A',
-                            top20Odds: 'N/A'
+                            top40Odds: 'N/A'
                         };
                     } else if (line.startsWith('Win Odds: ')) {
                         currentGolfer.winOdds = line.replace('Win Odds: ', '').trim();
-                    } else if (line.startsWith('Top 20 Odds: ')) {
-                        currentGolfer.top20Odds = line.replace('Top 20 Odds: ', '').trim();
+                    } else if (line.startsWith('Top 40 Odds: ')) {
+                        currentGolfer.top40Odds = line.replace('Top 40 Odds: ', '').trim();
                     }
                 });
                 
@@ -233,9 +267,9 @@
                         <input type="checkbox" ${golfer.checked ? 'checked' : ''} 
                                onchange="toggleGolfer(${index})">
                     </td>
-                    <td>${golfer.name}</td>
+                    <td>${blueNames.has(golfer.name) ? `<span style='color:#004d8c; font-weight:bold;'>${golfer.name}</span>` : golfer.name}</td>
                     <td class="odds-cell">${golfer.winOdds}</td>
-                    <td class="odds-cell">${golfer.top20Odds}</td>
+                    <td class="odds-cell">${golfer.top40Odds}</td>
                 `;
                 tbody.appendChild(row);
             });
@@ -258,9 +292,9 @@
                         aValue = parseFloat(a.winOdds.replace(/[^0-9.-]+/g, '')) || Infinity;
                         bValue = parseFloat(b.winOdds.replace(/[^0-9.-]+/g, '')) || Infinity;
                         return aValue - bValue;
-                    case 3: // Top 20 Odds
-                        aValue = parseFloat(a.top20Odds.replace(/[^0-9.-]+/g, '')) || Infinity;
-                        bValue = parseFloat(b.top20Odds.replace(/[^0-9.-]+/g, '')) || Infinity;
+                    case 3: // Top 40 Odds
+                        aValue = parseFloat(a.top40Odds.replace(/[^0-9.-]+/g, '')) || Infinity;
+                        bValue = parseFloat(b.top40Odds.replace(/[^0-9.-]+/g, '')) || Infinity;
                         return aValue - bValue;
                 }
             });
