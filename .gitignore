@@ -31,7 +31,8 @@ ENV/
 *.swo
 
 # Project specific
-*_odds_*.txt
+# *_odds_*.txt
+!pga_championship_odds_*.txt
 
 # OS
 .DS_Store
