@@ -2,6 +2,28 @@ import requests
 import json
 from datetime import datetime
 
+# Top 40 odds from OCR (normalized, 'Even' as +100)
+top40_odds_dict = {
+    'Robert MacIntyre': '+130', 'Tony Finau': '+130', 'Cameron Young': '+140', 'Keegan Bradley': '+140',
+    'Andrew Novak': '+160', 'Dean Burmester': '+160', 'Harris English': '+160', 'Matthew Fitzpatrick': '+160',
+    'Rickie Fowler': '+160', 'Taylor Pendrith': '+160', 'Mackenzie Hughes': '+170', 'David Puig': '+188',
+    'Sahith Theegala': '+188', 'Tom Kim': '+188', 'Jake Knapp': '+190', 'Kurt Kitayama': '+190',
+    'Bud Cauley': '+210', 'Lucas Glover': '+210', 'Si Woo Kim': '+130', 'Aaron Rai': '+140',
+    'Davis Thompson': '+140', 'Will Zalatoris': '+140', 'Byeong Hun An': '+160', 'Gary Woodland': '+160',
+    'J.J. Spaun': '+160', 'Rasmus Hojgaard': '+160', 'Sergio Garcia': '+160', 'Adam Scott': '+170',
+    'Stephan Jaeger': '+170', 'Ryan Fox': '+188', 'Thomas Detry': '+188', 'J.T. Poston': '+190',
+    'Kevin Yu': '+190', 'Ben Griffin': '+210', 'Jacob Bridgeman': '+210', 'Michael Kim': '+210',
+    'Rory McIlroy': '-1000', 'Bryson DeChambeau': '-575', 'Jon Rahm': '-270', 'Collin Morikawa': '-210',
+    'Patrick Cantlay': '-175', 'Hideki Matsuyama': '-165', 'Shane Lowry': '-150', 'Viktor Hovland': '-150',
+    'Corey Conners': '-125', 'Sepp Straka': '-125', 'Jason Day': '+100', 'Russell Henley': '+100',
+    'Min Woo Lee': '+105', 'Cameron Smith': '+125', 'Maverick McNealy': '+125', 'Wyndham Clark': '+125',
+    'Brian Harman': '+130', 'Dustin Johnson': '+130', 'Scottie Scheffler': '-1000', 'Justin Thomas': '-320',
+    'Xander Schauffele': '-270', 'Ludvig Aberg': '-210', 'Tommy Fleetwood': '-175', 'Joaquin Niemann': '-165',
+    'Tyrrell Hatton': '-150', 'Brooks Koepka': '-130', 'Jordan Spieth': '-125', 'Daniel Berger': '+100',
+    'Patrick Reed': '+100', 'Sungjae Im': '+100', 'Keith Mitchell': '+120', 'Justin Rose': '+125',
+    'Sam Burns': '+125', 'Akshay Bhatia': '+130', 'Denny McCarthy': '+130', 'Max Homa': '+130'
+}
+
 def fetch_odds():
     API_KEY = "7e28b633936a9e47635d45d4efebcede"
     BASE_URL = "https://api.the-odds-api.com/v4/sports"
@@ -88,7 +110,7 @@ def fetch_odds():
                                 golfers.append({
                                     "name": name,
                                     "win_odds": odds,
-                                    "top20_odds": "N/A",  # These markets might not be available
+                                    "top40_odds": top40_odds_dict.get(name, "N/A"),
                                     "make_cut_odds": "N/A"
                                 })
             else:
@@ -107,7 +129,7 @@ def fetch_odds():
                                     golfers.append({
                                         "name": name,
                                         "win_odds": odds,
-                                        "top20_odds": "N/A",  # These markets might not be available
+                                        "top40_odds": top40_odds_dict.get(name, "N/A"),
                                         "make_cut_odds": "N/A"
                                     })
         
@@ -142,12 +164,12 @@ def save_odds_to_file(golfers):
             f.write("2025 PGA Championship Odds\n")
             f.write("=" * 50 + "\n\n")
             f.write("Data sourced from The Odds API (FanDuel)\n")
-            f.write("Note: Top 20 and Make Cut odds may not be available\n\n")
+            f.write("Note: Top 40 and Make Cut odds may not be available\n\n")
             
             for golfer in golfers:
                 f.write(f"Golfer: {golfer['name']}\n")
                 f.write(f"Win Odds: {golfer['win_odds']}\n")
-                f.write(f"Top 20 Odds: {golfer['top20_odds']}\n")
+                f.write(f"Top 40 Odds: {golfer['top40_odds']}\n")
                 f.write(f"Make Cut Odds: {golfer['make_cut_odds']}\n")
                 f.write("-" * 30 + "\n")
         
