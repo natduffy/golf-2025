@@ -1,6 +1,6 @@
-# PGA Championship 2025 Odds Tracker
+# British Open Championship 2025 Odds Tracker
 
-A web application that displays and tracks betting odds for the 2025 PGA Championship.
+A web application that displays and tracks betting odds for the 2025 British Open Championship.
 
 ## Features
 
@@ -20,13 +20,13 @@ A web application that displays and tracks betting odds for the 2025 PGA Champio
    ```
 3. Set up your API key:
    - Get an API key from [The Odds API](https://the-odds-api.com/)
-   - Add your API key to `pga_championship_odds.py`
+   - Add your API key to `british_open_odds.py`
 
 ## Usage
 
 1. Fetch the latest odds:
    ```bash
-   python3 pga_championship_odds.py
+   python3 british_open_odds.py
    ```
    This will create a new text file with the current odds.
 
@@ -53,7 +53,7 @@ The server will start on port 8000. Make sure this port is available in your pro
 
 ## Files
 
-- `pga_championship_odds.py`: Fetches odds from The Odds API and saves them to a text file
+- `british_open_odds.py`: Fetches odds from The Odds API and saves them to a text file
 - `list_odds_files.py`: Lists available odds files sorted by timestamp
 - `server.py`: Serves the web interface
 - `index.html`: Web interface for viewing and interacting with the odds

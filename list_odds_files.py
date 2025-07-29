@@ -5,7 +5,7 @@ import sys
 def list_odds_files():
     try:
         # Get all files matching the pattern
-        files = [f for f in os.listdir('.') if f.startswith('pga_championship_odds_') and f.endswith('.txt')]
+        files = [f for f in os.listdir('.') if f.startswith('british_open_odds_') and f.endswith('.txt')]
         
         # Sort files by timestamp (newest first)
         files.sort(reverse=True)
