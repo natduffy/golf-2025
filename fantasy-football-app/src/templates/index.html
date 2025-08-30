@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Football Player Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .controls {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: #2a5298;
+        }
+        
+        .filter-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .position-filters {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .position-filters .filter-group {
+            min-width: 60px;
+        }
+        
+        .filter-group label {
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .filter-group select {
+            padding: 8px 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 6px;
+            font-size: 14px;
+            background: white;
+        }
+        
+        .filter-group input[type="checkbox"] {
+            margin-left: 5px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .stat-card h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        th {
+            background: #2a5298;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        th:hover {
+            background: #1e3c72;
+        }
+        
+        th.sortable {
+            cursor: pointer;
+        }
+        
+        th.sortable::after {
+            content: ' ↕';
+            opacity: 0.7;
+        }
+        
+        th.sortable.asc::after {
+            content: ' ↑';
+            opacity: 1;
+        }
+        
+        th.sortable.desc::after {
+            content: ' ↓';
+            opacity: 1;
+        }
+        
+        tr {
+            transition: all 0.2s ease;
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        tr.selected {
+            background-color: #e3f2fd;
+        }
+        
+        .checkbox-cell {
+            width: 50px;
+            text-align: center;
+        }
+        
+        .checkbox-cell input[type="checkbox"] {
+            transform: scale(1.2);
+        }
+        
+        .player-name {
+            font-weight: 600;
+            color: #2a5298;
+        }
+        
+        .position-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: white;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .position-rb { background: #e74c3c; }
+        .position-wr { background: #3498db; }
+        .position-te { background: #f39c12; }
+        .position-qb { background: #9b59b6; }
+        .position-k { background: #27ae60; }
+        .position-def { background: #34495e; }
+        
+        .team-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: #6c757d;
+            color: white;
+            text-align: center;
+            min-width: 40px;
+        }
+        
+        .points {
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            color: #2a5298;
+        }
+        
+        .position-rank {
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            color: #e74c3c;
+            text-align: center;
+        }
+        
+        .risk-flag {
+            color: #e74c3c;
+            font-size: 1.2rem;
+        }
+        
+        .undervalued-flag {
+            color: #27ae60;
+            font-size: 1.2rem;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 40px;
+            color: #e74c3c;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #2a5298;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1e3c72;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        @media (max-width: 768px) {
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-group {
+                justify-content: space-between;
+            }
+            
+            .table-container {
+                overflow-x: auto;
+            }
+            
+            th, td {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏈 Let's go bitches 🏈 </h1>
+            <p>🎯 🎯 🎯</p>
+        </div>
+        
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search players or teams...">
+            </div>
+            
+            <div class="filter-group">
+                <label>
+                    <input type="checkbox" id="riskFilter"> High Risk Only 🚩
+                </label>
+            </div>
+            
+            <div class="filter-group">
+                <label>
+                    <input type="checkbox" id="undervaluedFilter"> Undervalued Only 💎
+                </label>
+            </div>
+            
+            <div class="position-filters">
+                <div class="filter-group">
+                    <label>
+                        <input type="checkbox" id="qbFilter"> QB
+                    </label>
+                </div>
+                
+                <div class="filter-group">
+                    <label>
+                        <input type="checkbox" id="rbFilter"> RB
+                    </label>
+                </div>
+                
+                <div class="filter-group">
+                    <label>
+                        <input type="checkbox" id="wrFilter"> WR
+                    </label>
+                </div>
+                
+                <div class="filter-group">
+                    <label>
+                        <input type="checkbox" id="teFilter"> TE
+                    </label>
+                </div>
+                
+                <div class="filter-group">
+                    <label>
+                        <input type="checkbox" id="kFilter"> K
+                    </label>
+                </div>
+                
+                <div class="filter-group">
+                    <label>
+                        <input type="checkbox" id="defFilter"> DEF
+                    </label>
+                </div>
+            </div>
+            
+            <button class="btn btn-secondary" onclick="resetFilters()">Reset</button>
+        </div>
+        
+        <div class="stats" id="statsContainer">
+            <!-- Stats will be populated by JavaScript -->
+        </div>
+        
+        <div class="table-container">
+            <table id="playersTable">
+                <thead>
+                    <tr>
+                        <th class="checkbox-cell">Select</th>
+                        <th class="sortable" data-sort="rank">Rank</th>
+                        <th class="sortable" data-sort="position_rank">Pos Rank</th>
+                        <th class="sortable" data-sort="name">Player</th>
+                        <th class="sortable" data-sort="position">Position</th>
+                        <th class="sortable" data-sort="team">Team</th>
+                        <th class="sortable" data-sort="projected_points">Projected Points</th>
+                        <th>Flags</th>
+                    </tr>
+                </thead>
+                <tbody id="playersTableBody">
+                    <tr>
+                        <td colspan="7" class="loading">Loading players...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let allPlayers = [];
+        let filteredPlayers = [];
+        let selectedPlayers = new Set();
+        let currentSort = { column: 'rank', direction: 'asc' };
+        
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPlayers();
+            setupEventListeners();
+        });
+        
+        function setupEventListeners() {
+            // Search input
+            document.getElementById('searchInput').addEventListener('input', debounce(applyFilters, 300));
+            
+            // Checkbox filters
+            document.getElementById('riskFilter').addEventListener('change', applyFilters);
+            document.getElementById('undervaluedFilter').addEventListener('change', applyFilters);
+            
+            // Position filter checkboxes
+            document.getElementById('qbFilter').addEventListener('change', applyFilters);
+            document.getElementById('rbFilter').addEventListener('change', applyFilters);
+            document.getElementById('wrFilter').addEventListener('change', applyFilters);
+            document.getElementById('teFilter').addEventListener('change', applyFilters);
+            document.getElementById('kFilter').addEventListener('change', applyFilters);
+            document.getElementById('defFilter').addEventListener('change', applyFilters);
+            
+            // Table sorting
+            document.querySelectorAll('th.sortable').forEach(th => {
+                th.addEventListener('click', () => sortTable(th.dataset.sort));
+            });
+        }
+        
+        async function loadPlayers() {
+            try {
+                const response = await fetch('/api/players');
+                if (!response.ok) throw new Error('Failed to fetch players');
+                
+                allPlayers = await response.json();
+                filteredPlayers = [...allPlayers];
+                
+                // Positions are now handled by checkboxes
+                
+                // Update display
+                updateStats();
+                updateTable();
+                
+            } catch (error) {
+                console.error('Error loading players:', error);
+                document.getElementById('playersTableBody').innerHTML = `
+                    <tr><td colspan="7" class="error">Error loading players: ${error.message}</td></tr>
+                `;
+            }
+        }
+        
+
+        
+        function applyFilters() {
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+            const riskOnly = document.getElementById('riskFilter').checked;
+            const undervaluedOnly = document.getElementById('undervaluedFilter').checked;
+            
+            // Get selected positions
+            const selectedPositions = [];
+            if (document.getElementById('qbFilter').checked) selectedPositions.push('QB');
+            if (document.getElementById('rbFilter').checked) selectedPositions.push('RB');
+            if (document.getElementById('wrFilter').checked) selectedPositions.push('WR');
+            if (document.getElementById('teFilter').checked) selectedPositions.push('TE');
+            if (document.getElementById('kFilter').checked) selectedPositions.push('K');
+            if (document.getElementById('defFilter').checked) selectedPositions.push('DEF');
+            
+            filteredPlayers = allPlayers.filter(player => {
+                // Search filter
+                if (searchQuery && !player.name.toLowerCase().includes(searchQuery) && 
+                    !player.team.toLowerCase().includes(searchQuery)) {
+                    return false;
+                }
+                
+                // Position filter - if no positions selected, show all; if positions selected, only show those
+                if (selectedPositions.length > 0 && !selectedPositions.includes(player.position)) {
+                    return false;
+                }
+                
+                // Risk filter
+                if (riskOnly && !player.risk_flag) {
+                    return false;
+                }
+                
+                // Undervalued filter
+                if (undervaluedOnly && !player.undervalued_flag) {
+                    return false;
+                }
+                
+                return true;
+            });
+            
+            updateStats();
+            updateTable();
+        }
+        
+        function resetFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('riskFilter').checked = false;
+            document.getElementById('undervaluedFilter').checked = false;
+            
+            // Reset all position filters
+            document.getElementById('qbFilter').checked = false;
+            document.getElementById('rbFilter').checked = false;
+            document.getElementById('wrFilter').checked = false;
+            document.getElementById('teFilter').checked = false;
+            document.getElementById('kFilter').checked = false;
+            document.getElementById('defFilter').checked = false;
+            
+            filteredPlayers = [...allPlayers];
+            updateStats();
+            updateTable();
+        }
+        
+        function updateStats() {
+            const statsContainer = document.getElementById('statsContainer');
+            
+            const totalPlayers = filteredPlayers.length;
+            const highRiskPlayers = filteredPlayers.filter(p => p.risk_flag).length;
+            const undervaluedPlayers = filteredPlayers.filter(p => p.undervalued_flag).length;
+            const avgPoints = filteredPlayers.length > 0 ? 
+                (filteredPlayers.reduce((sum, p) => sum + p.projected_points, 0) / filteredPlayers.length).toFixed(1) : 0;
+            
+            statsContainer.innerHTML = `
+                <div class="stat-card">
+                    <h3>Total Players</h3>
+                    <div class="number">${totalPlayers}</div>
+                </div>
+                <div class="stat-card">
+                    <h3>High Risk 🚩</h3>
+                    <div class="number">${highRiskPlayers}</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Undervalued 💎</h3>
+                    <div class="number">${undervaluedPlayers}</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Avg Points</h3>
+                    <div class="number">${avgPoints}</div>
+                </div>
+            `;
+        }
+        
+        function updateTable() {
+            const tbody = document.getElementById('playersTableBody');
+            
+            if (filteredPlayers.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" class="loading">No players match your filters</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = filteredPlayers.map(player => `
+                <tr class="${selectedPlayers.has(player.rank) ? 'selected' : ''}">
+                    <td class="checkbox-cell">
+                        <input type="checkbox" 
+                               ${selectedPlayers.has(player.rank) ? 'checked' : ''} 
+                               onchange="togglePlayer(${player.rank})">
+                    </td>
+                    <td>${player.rank}</td>
+                    <td class="position-rank">${player.position_rank}</td>
+                    <td class="player-name">${player.name}</td>
+                    <td>
+                        <span class="position-badge position-${player.position.toLowerCase()}">${player.position}</span>
+                    </td>
+                    <td>
+                        <span class="team-badge">${player.team}</span>
+                    </td>
+                    <td class="points">${player.projected_points}</td>
+                    <td>
+                        ${player.risk_flag ? '<span class="risk-flag" title="High Risk">🚩</span>' : ''}
+                        ${player.undervalued_flag ? '<span class="undervalued-flag" title="Undervalued">💎</span>' : ''}
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function togglePlayer(rank) {
+            if (selectedPlayers.has(rank)) {
+                selectedPlayers.delete(rank);
+            } else {
+                selectedPlayers.add(rank);
+            }
+            updateTable();
+        }
+        
+        function sortTable(column) {
+            if (currentSort.column === column) {
+                currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.column = column;
+                currentSort.direction = 'asc';
+            }
+            
+            // Update sort indicators
+            document.querySelectorAll('th.sortable').forEach(th => {
+                th.classList.remove('asc', 'desc');
+                if (th.dataset.sort === currentSort.column) {
+                    th.classList.add(currentSort.direction);
+                }
+            });
+            
+            // Sort the data
+            filteredPlayers.sort((a, b) => {
+                let aVal = a[currentSort.column];
+                let bVal = b[currentSort.column];
+                
+                if (typeof aVal === 'string') {
+                    aVal = aVal.toLowerCase();
+                    bVal = bVal.toLowerCase();
+                }
+                
+                if (aVal < bVal) return currentSort.direction === 'asc' ? -1 : 1;
+                if (aVal > bVal) return currentSort.direction === 'asc' ? 1 : -1;
+                return 0;
+            });
+            
+            updateTable();
+        }
+        
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+    </script>
+</body>
+</html>
