@@ -1,1 +1,1 @@
-web: python -m http.server $PORT 
+web: cd fantasy-football-app && python src/app.py

@@ -12,7 +12,7 @@ def load_player_data():
     
     # Path to the master list file (relative to the parent directory)
     master_list_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 
-                                   '..', 'fantasy-football', 'fantasy_football_master_list.md')
+                                   'fantasy_football_master_list.md')
     
     try:
         with open(master_list_path, 'r', encoding='utf-8') as f:
@@ -130,4 +130,5 @@ def get_positions():
     return jsonify(positions)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8001)
+    port = int(os.environ.get('PORT', 8001))
+    app.run(debug=False, host='0.0.0.0', port=port)
