@@ -68,6 +68,15 @@ def load_player_data():
             ]
             print("Using fallback sample data")
     
+    # Remove duplicates by player name (keep the first occurrence)
+    seen_players = set()
+    unique_players = []
+    for player in players:
+        if player['name'] not in seen_players:
+            seen_players.add(player['name'])
+            unique_players.append(player)
+    players = unique_players
+
     # Sort by projected points (descending)
     players.sort(key=lambda x: x['projected_points'], reverse=True)
     
@@ -83,6 +92,15 @@ def load_player_data():
             position_ranks[pos] = 1
         player['position_rank'] = position_ranks[pos]
         position_ranks[pos] += 1
+    
+    print(f"Total players loaded: {len(players)}")
+    print("Players by position:")
+    pos_counts = {}
+    for player in players:
+        pos = player['position']
+        pos_counts[pos] = pos_counts.get(pos, 0) + 1
+    for pos, count in sorted(pos_counts.items()):
+        print(f"{pos}: {count} players")
     
     return players
 
