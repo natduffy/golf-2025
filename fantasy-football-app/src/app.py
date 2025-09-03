@@ -71,9 +71,18 @@ def load_player_data():
     # Sort by projected points (descending)
     players.sort(key=lambda x: x['projected_points'], reverse=True)
     
-    # Add ranking
+    # Add overall ranking
     for i, player in enumerate(players):
         player['rank'] = i + 1
+    
+    # Add position ranking
+    position_ranks = {}
+    for player in players:
+        pos = player['position']
+        if pos not in position_ranks:
+            position_ranks[pos] = 1
+        player['position_rank'] = position_ranks[pos]
+        position_ranks[pos] += 1
     
     return players
 
